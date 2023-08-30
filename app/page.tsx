@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 
@@ -27,7 +26,6 @@ export default function Home() {
   const handleButtonClick = async () => {
     const data = await getWebpageHTML();
     const footerString = "<!-- e hearst/common/author_body.tpl -->";
-    const headerString = '<div class="belowMastheadWrapper"></div>';
 
     // Find the position of the search string
     const searchStringIndex = data.indexOf(footerString);
