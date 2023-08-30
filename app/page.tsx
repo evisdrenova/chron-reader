@@ -30,7 +30,7 @@ export default function Home() {
   console.log(url);
 
   return (
-    <div className="mx-10">
+    <div className="mx-10 mt-10">
       <div className="text-4xl text-center">Welcome to chron reader.</div>
       <div className="text-xl text-center pt-10">
         I hate the SF chronicle and I refuse to give them a single penny but I
@@ -41,7 +41,7 @@ export default function Home() {
         and then returns a version of the article that is free to read so that
         you also never have to pay them.
       </div>
-      <div className="flex flex-row items-center gap-4">
+      <div className="flex flex-row items-center gap-4 mt-20 mx-40">
         <input
           id="urlInput"
           type="text"
