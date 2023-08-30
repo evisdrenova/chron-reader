@@ -24,10 +24,7 @@ export default function Home() {
 
   const handleButtonClick = async () => {
     const data = await getWebpageHTML();
-
     setPageData(data);
-    console.log("URL:", url);
-    // Perform other actions with the URL if needed
   };
 
   console.log(url);
