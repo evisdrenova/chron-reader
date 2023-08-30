@@ -5,6 +5,7 @@ import axios, { AxiosError } from "axios";
 
 export default function Home() {
   const [url, setUrl] = useState<string>("");
+  const [pageData, setPageData] = useState<string>("");
 
   async function getWebpageHTML(): Promise<string> {
     try {
@@ -21,8 +22,10 @@ export default function Home() {
     setUrl(event.target.value);
   };
 
-  const handleButtonClick = () => {
-    getWebpageHTML();
+  const handleButtonClick = async () => {
+    const data = await getWebpageHTML();
+
+    setPageData(data);
     console.log("URL:", url);
     // Perform other actions with the URL if needed
   };
@@ -59,7 +62,13 @@ export default function Home() {
         </button>
       </div>
 
-      <div className="w-full border-2 border-gray-400 mt-20 rounded-lg"></div>
+      <div className="w-full border-2 border-gray-400 mt-20 rounded-lg">
+        {!pageData ? (
+          <p className="p-20">Your page will render here</p>
+        ) : (
+          <div dangerouslySetInnerHTML={{ __html: pageData }} />
+        )}
+      </div>
     </div>
   );
 }
