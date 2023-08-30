@@ -27,11 +27,10 @@ export default function Home() {
   const handleButtonClick = async () => {
     // const data = await getWebpageHTML();
     const footerString = "<!-- e hearst/common/author_body.tpl -->";
+    const headerString = '<div class="belowMastheadWrapper"></div>'
 
     // Find the position of the search string
     const searchStringIndex = page.indexOf(footerString);
-
-    console.log("search stirng", searchStringIndex);
 
     if (searchStringIndex !== -1) {
       // Delete content after the search string
