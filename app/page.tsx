@@ -9,11 +9,13 @@ export default function Home() {
 
   async function getWebpageHTML(): Promise<string> {
     try {
+      console.log("attempting to get data");
       const response = await axios.get(url);
       console.log(response.data);
       return response.data;
     } catch (error) {
       const axiosError = error as AxiosError;
+      setPageData("");
       setError(axiosError.message);
       throw new Error(`Error fetching webpage: ${axiosError.message}`);
     }
@@ -22,9 +24,10 @@ export default function Home() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);
   };
-
   const handleButtonClick = async () => {
     const data = await getWebpageHTML();
+
+    console.log("data", data);
     const footerString = "<!-- e hearst/common/author_body.tpl -->";
 
     // Find the position of the search string
@@ -36,8 +39,6 @@ export default function Home() {
         0,
         searchStringIndex + footerString.length
       );
-
-      // console.log(modifiedHtmlString);
       setPageData(modifiedHtmlString);
     } else {
       setPageData(data);
