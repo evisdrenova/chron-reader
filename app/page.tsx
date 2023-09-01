@@ -10,16 +10,16 @@ export default function Home() {
   async function getWebpageHTML(): Promise<string> {
     try {
       console.log("attempting to get data");
-      const response = await fetch(`/api/get-data`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(url),
-      });
-      // const response = await axios.get(url);
-      console.log(response.json());
-      return response.json();
+      // const response = await fetch(`/api/get-data`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(url),
+      // });
+      const response = await axios.get("`/api/get-data`", { url: url });
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       const axiosError = error as AxiosError;
 
