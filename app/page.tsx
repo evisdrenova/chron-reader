@@ -9,6 +9,7 @@ export default function Home() {
 
   async function getWebpageHTML(): Promise<string> {
     try {
+      console.log("attempting to get data");
       const response = await axios.get(url);
       console.log(response.data);
       return response.data;
@@ -23,7 +24,6 @@ export default function Home() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value);
   };
-
   const handleButtonClick = async () => {
     const data = await getWebpageHTML();
 
