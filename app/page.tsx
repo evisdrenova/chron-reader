@@ -40,7 +40,7 @@ export default function Home() {
       // console.log(modifiedHtmlString);
       setPageData(modifiedHtmlString);
     } else {
-      console.log("Search string not found.");
+      setPageData(data);
     }
   };
 
@@ -48,10 +48,8 @@ export default function Home() {
     <div className="mx-10 mt-10">
       <div className="text-4xl text-center">Welcome to chron reader.</div>
       <div className="text-xl text-center pt-10">
-        I hate the SF chronicle and I refuse to give them a single penny but I
-        want to read their articles and get angry at how shittily they cover
-        crime in SF. So I created this app that just takes in a chronical
-        article URL (for ex.
+        The News should be free. So I created this app that just takes in a
+        chronical article URL (for ex.
         https://www.sfchronicle.com/crime/article/sf-crime-assault-bat-shopkeeper-dies-18336329.php)
         and then returns a version of the article that is free to read so that
         you also never have to pay them.
