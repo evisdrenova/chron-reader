@@ -22,8 +22,9 @@ export default function Home() {
       return response.json();
     } catch (error) {
       const axiosError = error as AxiosError;
-      setPageData("");
+
       setError(axiosError.message);
+      setPageData("");
       throw new Error(`Error fetching webpage: ${axiosError.message}`);
     }
   }
